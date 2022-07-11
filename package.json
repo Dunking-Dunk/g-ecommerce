@@ -7,7 +7,7 @@
     "frontend:build": "webpack --progress --config webpack.config.build.js",
     "backend:development": "nodemon app.js",
     "backend:build": "node app.js",
-    "start": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\""
+    "start": "node app.js"
   },
   "author": "Hursun",
   "license": "ISC",
