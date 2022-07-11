@@ -46,6 +46,7 @@
 .home__images {
     @extend %cover;
     height: 172.5rem;
+    width: 100%;
     position: relative;
     visibility:hidden; 
 }

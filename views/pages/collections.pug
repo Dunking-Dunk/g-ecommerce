@@ -19,16 +19,16 @@ block content
                                     h3.products__carousel__information__title=product.data.title
                                     p.products__carousel__information__description=product.data.description
                                     .products__carousel__information__price=product.data.price
-                                    
-                                .products__carousel__gallery 
-                                    figure.products__carousel__gallery__media
-                                        img.products__carousel__gallery__media__image(data-src=product.data.product.url,alt=product.data.product.alt)
+        
+                                figure.products__carousel__gallery__media
+                                    img.products__carousel__gallery__media__image(data-src=product.data.product.url,alt=product.data.product.alt)
                         else
                             .products__carousel
                                 .products__carousel__information
                                     h1.products__carousel__information__index 0#{index + 1}
                                     h3.products__carousel__information__title=product.data.title
                                     p.products__carousel__information__description=product.data.description
+                                    .products__carousel__information__price=product.data.price
                                 .products__carousel__gallery 
                                     figure.products__carousel__gallery__media
                                         img.products__carousel__gallery__media__image(data-src=product.data.product.url,alt=product.data.product.alt)

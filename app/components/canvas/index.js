@@ -46,7 +46,9 @@ export default class Canvas {
     }
 
     destroyHome() {
-        this.home.destroy()
+        if (this.home) {
+            this.home.destroy()
+        }
     }
 
     onPreloaded() {

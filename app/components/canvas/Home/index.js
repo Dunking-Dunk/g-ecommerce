@@ -137,6 +137,7 @@ export default class {
     }
 
     destroy() {
+        console.log('lol')
         this.scene.removeChild(this.group)
     }
 }

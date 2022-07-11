@@ -17,6 +17,7 @@
     top: 15%;
     transform: translateX(-50%);
     background-color: $color-blue;
+    z-index: 1;
 }
 
 .collections__navigation__text {
@@ -28,18 +29,22 @@
 
 .collections__products {
     @extend %cover;
-    height: 60rem;
-    top: 32.2rem;
 }
+
 .products__carousel {
-    height: 60rem;
-    min-width: 100vw;
-    padding: 0 10rem;
     position: absolute;
     display: flex;
+    align-items: center;
     inset: 0;
     opacity: 0;
     transition: opacity 0.35s ease;
+    padding: 10rem 10rem 0rem 10rem;
+
+    @include media('<phone') {
+        flex-direction: column-reverse;
+        padding: 40rem 0rem 0rem 0rem;
+        align-items: flex-start;
+    }
 }
 
 [data-active] {
@@ -50,10 +55,14 @@
 .products__carousel__information {
     flex: 1;
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
     color: $color-blue;
-    margin-left: 20.3rem
+    margin-left: 20.3rem;
+
+    @include media('<phone') {
+        margin-top: 2rem;
+        margin-left: 3rem;
+    }
 }
 
 .products__carousel__information__index {
@@ -80,17 +89,16 @@
     }
 }
 
-.products__carousel__gallery{
-    margin-right: 2rem;
-    flex: 2;
-    display: flex;
-    justify-content: center;
-}
-
 .products__carousel__gallery__media{
+    flex: 1;
+    position: relative;
     height: 60rem;
     width: 80rem;
-    position: absolute;
+    margin-right: 12rem;
+    @include media('<phone') {
+        margin-right: 0rem;
+        min-height: 40rem;
+    }
 }
 
 .products__carousel__gallery__media__image {
@@ -99,21 +107,30 @@
 }
 
 .products__carousel__btn {
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    position: absolute;
     &.right  {
-        position: absolute;
         right: 5%;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: transparent;
-    
     }
 
     &.left  {
-        position: absolute;
         left: 5%;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: transparent;
     }
+
+    @include media('<phone') {
+        svg {
+            height: 5rem;
+            width: 5rem;
+        }
+
+        &.right  {
+            right: 1%;
+        }
     
+        &.left  {
+            left: 1%;
+        }
+    }
 }
