@@ -7,7 +7,9 @@
     "frontend:build": "webpack --progress --config webpack.config.build.js",
     "backend:development": "nodemon app.js",
     "backend:build": "node app.js",
-    "start": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\""
+    "start": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\"",
+    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
+    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;"
   },
   "author": "Hursun",
   "license": "ISC",
