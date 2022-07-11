@@ -9,7 +9,7 @@ import fetch from 'node-fetch'
 import methodOverride from 'method-override'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const PORT = 3000
+const PORT = process.env.PORT
 const app = express()
 
 const endpoint = prismic.getEndpoint(process.env.PRISMIC_REPO_NAME)
@@ -73,6 +73,6 @@ app.get('/collections', async (req, res) => {
     res.render('pages/collections', { collections: collections.data, products: products_data })
 })
 
-app.listen(PORT, () => {
+app.listen(PORT || 3000, () => {
     console.log('listening on port ' + PORT)
 })
