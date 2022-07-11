@@ -1,0 +1,48 @@
+.preloader {
+    @extend %cover; 
+    @extend %center;
+    background-color: $color-darkblue ;
+    color: $color-snow;
+    z-index: Z('preloader');
+    @include media('<phone') {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.preloader__text {
+    font-size: 0;
+    flex: 1;
+    text-transform: uppercase;
+    text-align: left;
+    span {
+        display: inline-block;
+      
+    }
+    span span {
+        @extend %title-72;
+    }
+    @include media('<phone') {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        overflow: hidden;
+    }
+}
+
+.preloader__loader {
+    flex: 1;
+    overflow:hidden ;
+    @include media('<phone') {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow: hidden;
+    }
+}
+
+.preloader__number {
+    @extend %title-128;
+}

@@ -1,0 +1,119 @@
+.collections {
+    @extend %page;
+    height: 100vh;
+}
+
+.collections__wrapper{
+    @extend %cover;
+}
+
+.collections__navigation {
+    border-radius: 4rem;
+    padding: 2rem;
+    position: absolute;
+    max-width: 990.15px;
+    max-height: 69.58px;
+    left: 50%;
+    top: 15%;
+    transform: translateX(-50%);
+    background-color: $color-blue;
+}
+
+.collections__navigation__text {
+    @extend %title-28;
+    color: $color-snow;
+    padding: 0rem 2rem;
+    border-right: 1px solid $color-snow;
+}
+
+.collections__products {
+    @extend %cover;
+    height: 60rem;
+    top: 32.2rem;
+}
+.products__carousel {
+    height: 60rem;
+    min-width: 100vw;
+    padding: 0 10rem;
+    position: absolute;
+    display: flex;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+[data-active] {
+    opacity: 1;
+} 
+
+
+.products__carousel__information {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: $color-blue;
+    margin-left: 20.3rem
+}
+
+.products__carousel__information__index {
+    @extend %title-128;
+}
+
+.products__carousel__information__title {
+    @extend %title-128;
+    margin-top: 4rem
+}
+
+.products__carousel__information__description {
+    @extend %description-16;
+    color: $color-snow;
+    margin-top: 1;
+}
+
+.products__carousel__information__price {
+    @extend %description-32;
+    margin-top: 5rem;
+
+    &::before {
+        content: 'PRICE: ';
+    }
+}
+
+.products__carousel__gallery{
+    margin-right: 2rem;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.products__carousel__gallery__media{
+    height: 60rem;
+    width: 80rem;
+    position: absolute;
+}
+
+.products__carousel__gallery__media__image {
+    @extend %cover;
+    object-fit: cover;
+}
+
+.products__carousel__btn {
+    &.right  {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent;
+    
+    }
+
+    &.left  {
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent;
+    }
+    
+}

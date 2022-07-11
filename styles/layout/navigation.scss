@@ -1,0 +1,44 @@
+.navigation {
+    @extend %cover;
+    z-index: Z('navigation');
+    position: fixed;
+    color: $color-snow;
+    pointer-events: none;
+}
+
+.navigation__wrapper {
+    @extend %cover
+}
+ 
+.navigation__title {
+    @extend %title-40;
+    position: absolute;
+    pointer-events:auto;
+    left: 4rem;
+    transition: opacity 0.5s ease;
+    top: 2.5rem;
+    opacity: 1;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.navigation__list {
+  
+}
+
+.navigation__list__item {
+    position: absolute;
+    right: 4rem;
+    list-style: none;
+    pointer-events:auto;
+    top: 3rem;
+
+}
+
+.navigation__list__item__link {
+    @extend %title-18;
+    display: block;
+
+}

@@ -1,0 +1,49 @@
+* {
+box-sizing: border-box;
+user-select: none;
+}
+
+html {
+    font-size: calc(100vw / 1920 * 10);
+    @include media('<phone') {
+        font-size: calc(100vw / 750 * 10);
+    }
+    position: fixed;
+}
+
+body {
+    @extend %cover;
+    @extend %description-16;
+    font-family: $font-roboto;
+    position: fixed;
+    background-color: $color-darkblue;
+}
+a {
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+}
+
+button {
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+img {
+    vertical-align: middle;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    &.loaded {
+        opacity: 1;
+    }
+}
+
+
+.content {
+    @extend %cover;
+}
+

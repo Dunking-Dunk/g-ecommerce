@@ -1,0 +1,40 @@
+extends ../base.pug 
+
+block variables 
+    -var template = 'collections'
+
+block content
+    .collections
+        .collections__wrapper 
+            .collections__navigation 
+                each collection in collections.collections 
+                    a.collections__navigation__text(href=`/collections?collections=${collection.collection_collection.uid}`)=collection.name
+            .collections__products(data-carousel)     
+                div(data-slides) 
+                    each product, index in products 
+                        if index === 0
+                            .products__carousel(data-active)
+                                .products__carousel__information
+                                    h1.products__carousel__information__index 0#{index + 1}
+                                    h3.products__carousel__information__title=product.data.title
+                                    p.products__carousel__information__description=product.data.description
+                                    .products__carousel__information__price=product.data.price
+                                    
+                                .products__carousel__gallery 
+                                    figure.products__carousel__gallery__media
+                                        img.products__carousel__gallery__media__image(data-src=product.data.product.url,alt=product.data.product.alt)
+                        else
+                            .products__carousel
+                                .products__carousel__information
+                                    h1.products__carousel__information__index 0#{index + 1}
+                                    h3.products__carousel__information__title=product.data.title
+                                    p.products__carousel__information__description=product.data.description
+                                .products__carousel__gallery 
+                                    figure.products__carousel__gallery__media
+                                        img.products__carousel__gallery__media__image(data-src=product.data.product.url,alt=product.data.product.alt)
+                button(class='products__carousel__btn right' data-carousel-button='next')
+                    svg( xmlns="http://www.w3.org/2000/svg" width="83" height="90" viewBox="0 0 83 90" fill="none")
+                        path(d="M82.5901 45.5734L0.848409 89.3613L2.43041 0.168598L82.5901 45.5734Z" fill="#D9D9D9")
+                button(class='products__carousel__btn left' data-carousel-button='prev')      
+                    svg(xmlns="http://www.w3.org/2000/svg" width="83" height="90" viewBox="0 0 83 90" fill="none")
+                        path(xmlns="http://www.w3.org/2000/svg" d="M0.405124 45.6099L81.2822 0.92717L81.4435 90.1277L0.405124 45.6099Z" fill="#D9D9D9")

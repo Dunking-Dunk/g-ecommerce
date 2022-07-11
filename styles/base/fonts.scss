@@ -1,0 +1,27 @@
+@font-face {
+    font-family: $font-roboto;
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+        url('../fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $font-bebas ;
+    src: url('../fonts/BebasNeue-Regular.woff2') format('woff2'),
+        url('../fonts/BebasNeue-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $font-pacifico;
+    src: url('../fonts/Pacifico-Regular.woff2') format('woff2'),
+        url('../fonts/Pacifico-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,22 @@
+extends ../base.pug
+
+block variables 
+    -var template = 'home'
+
+block content
+    .home 
+        .home__wrapper 
+            figure.home__main__media
+                img.home__main__media__image(data-src=home.main_image.url, alt=home.main_image.alt)
+            .home__images
+                each image in home.images        
+                    figure.home__images__media 
+                        img.home__images__media__image(data-src=image.images_image.url, alt=image.images_image.alt)
+                        
+            a.home__link(href='/collections/?collections=all') explore
+                svg(class='home__link__icon' xmlns="http://www.w3.org/2000/svg" width="482" height="76" viewBox="0 0 482 76" fill="none")
+                    rect(xmlns="http://www.w3.org/2000/svg" x="1" y="1" width="479.495" height="73.2988" rx="36.6494" stroke="#ffffff" stroke-width="2")
+                //- svg(class='home__link__icon__item' xmlns="http://www.w3.org/2000/svg" width="482" height="76" viewBox="0 0 482 76" fill="none")
+                //-     rect(xmlns="http://www.w3.org/2000/svg" x="1" y="1" width="479.495" height="73.2988" rx="36.6494" stroke="#47B5FF" stroke-width="2")
+                    
+            
