@@ -7,7 +7,6 @@ import * as prismic from '@prismicio/client'
 import * as prismicH from '@prismicio/helpers'
 import fetch from 'node-fetch'
 import methodOverride from 'method-override'
-import errorHandler from 'error-handler'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PORT = 3000
@@ -23,7 +22,6 @@ const client = prismic.createClient(endpoint, {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(methodOverride())
-app.use(errorHandler)
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
