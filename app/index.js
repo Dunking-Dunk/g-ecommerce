@@ -106,6 +106,7 @@ class App {
         each(links, (e) => {
             e.onclick = (event) => {
                 const { href } = e
+                console.log(href)
                 event.preventDefault()
                 this.onChange(href)
             }
@@ -115,6 +116,7 @@ class App {
     async onChange(url) {
         try {
             this.page.hide()
+            if (this.canvas && this.canvas.destroyHome) this.canvas.destroyHome()
             const request = await window.fetch(url)
             window.history.pushState({}, '', url)
             if (request.status === 200) {

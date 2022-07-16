@@ -56,11 +56,10 @@ export default class Canvas {
     }
 
     onChange(template) {
+        console.log(template)
         if (template === 'home') {
             this.createHome()
-        } else {
-            this.destroyHome()
-        }
+        } else this.destroyHome()
 
         this.template = template
     }

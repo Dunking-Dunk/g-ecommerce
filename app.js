@@ -56,11 +56,12 @@ app.get('/collections', async (req, res) => {
         query.collections = 'all'
     }
     const graphQuery = `{
-            collection {
-                title
-                products
-                }
-        }`
+                collection {
+                    title
+                    products
+                    }
+            }`
+    console.log(query)
     const collections = await client.getSingle('collections')
     const collection = await client.getByUID('collection', query.collections, { graphQuery })
     const products = await collection.data.products
@@ -74,5 +75,5 @@ app.get('/collections', async (req, res) => {
 })
 
 app.listen(PORT || 3000, () => {
-    console.log('listening on port ' + PORT)
+    console.log('listening on port ' + PORT || 3000)
 })

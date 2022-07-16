@@ -5,7 +5,7 @@
     &::after,
     &::before {
         content: '';
-        height: 24rem;
+        height: 50rem;
         left: 0;
         position: absolute;
         width: 100%;
@@ -49,6 +49,10 @@
     width: 100%;
     position: relative;
     visibility:hidden; 
+
+    @include media('<phone') {
+        left: -50%;
+    }
 }
 
 .home__images__media {
@@ -139,6 +143,7 @@
         width: 42.2rem;
         height: 35.2rem;
     }
+
 
 }
 
