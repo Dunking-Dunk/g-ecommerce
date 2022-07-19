@@ -11,8 +11,4 @@ export default class Home extends Page {
             id: 'home',
         })
     }
-
-    create() {
-        super.create()
-    }
 }

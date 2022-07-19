@@ -6,8 +6,24 @@
 .collections__wrapper{
     @extend %cover;
 }
+.collections__title {
+    @extend %title-128;
+    position: absolute;
+    color: $color-blue;
+    left: 10%;
+    top: 20%;
+    text-decoration-line: underline ;
+    text-decoration-color: $color-snow;
+    text-decoration-thickness:0.5rem ;
 
+    @include media('<phone') {
+        padding: 10rem 0 0 0;
+        top: 0%;
+        left: 1%;
+    }
+}
 .collections__navigation {
+    display: flex;
     border-radius: 4rem;
     padding: 2rem;
     position: absolute;
@@ -17,7 +33,33 @@
     top: 15%;
     transform: translateX(-50%);
     background-color: $color-blue;
-    z-index: 1;
+    z-index: 2;
+    overflow-x:scroll; 
+   &::-webkit-scrollbar {
+    max-width: 5px;
+    max-height: 5px;
+    border-radius: 4rem;
+    display: none;
+   }
+//    &::-webkit-scrollbar-track {
+
+//      background-color: $color-blue;
+//      border-radius: 4rem;
+//    }
+//    &::-webkit-scrollbar-thumb {
+//     width: 1rem;
+//     background-color: $color-snow;
+//     border-radius: 4rem;
+//   }
+
+   @include media('<phone') {
+    max-width: 300.15px;
+    top: 18%;
+    &::-webkit-scrollbar {
+       display: none
+       }
+   }
+
 }
 
 .collections__navigation__text {
@@ -33,7 +75,6 @@
 
 [data-slides] {
     @extend %cover;
-
 }
 
 .products__carousel {
@@ -43,7 +84,10 @@
     justify-content: center;
     transition: opacity 0.35s ease;
     opacity: 0;
+    inset: 0;
+    cursor: pointer;
     @include media('<phone') {
+        display: flex;
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
@@ -52,19 +96,29 @@
 
 [data-active] {
     opacity: 1;
+    z-index: 1;
+
 } 
 
 
 .products__carousel__information {
     width: 50%;
+    height: 100%;
     display: flex;
     align-items: flex-start;
+    justify-content: center;
     flex-direction: column;
     margin-left: 22rem;
+    margin-top: 10rem;
     color: $color-blue;
     @include media('<phone') {
+        flex: 1;
+        margin-top: 3rem;
+        display: flex;
         width: 100%;
-        margin-top: 5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
         margin-left: 3rem;
     }
 }
@@ -72,17 +126,23 @@
 .products__carousel__information__index {
     @extend %title-128;
     text-align: start;
+
 }
 
 .products__carousel__information__title {
     @extend %title-128;
-    margin-top: 4rem
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    @include media('<phone') {
+        margin-top: 0;
+    }
 }
 
 .products__carousel__information__description {
     @extend %description-16;
     color: $color-snow;
     margin-top: 1;
+    max-width: 50rem;
     @include media('<phone') {
         visibility: hidden;
     }
@@ -90,14 +150,14 @@
 
 
 .products__carousel__gallery__media{
-    height: 60rem;
-    width: 80rem;
-    margin-top: 20rem;
     margin-right: 22rem;
-    @include media('<phone') {
-        width: 100%;
+    margin-top: 10rem;
+    @include media('<phone') {  
+       display: flex;
+       align-items: flex-end;
+        
+        flex: 1.5;
         margin-right: 0rem;
-        min-height: 40rem;
     }
 }
 
@@ -105,6 +165,10 @@
     height: 60rem;
     width: 80rem;
     object-fit: cover;
+
+    @include media('<phone') {
+        height: 40rem;
+    }
 }
 
 .products__carousel__btn {
@@ -112,6 +176,12 @@
     transform: translateY(-50%);
     background-color: transparent;
     position: absolute;
+    height: 40rem;
+    width: 10rem;
+    z-index: 2;
+    // svg {
+     
+    // }
     &.right  {
         right: 2%;
     }
@@ -133,5 +203,28 @@
         &.left  {
             left: 1%;
         }
+    }
+}
+
+.collections__slider {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    width: 66rem;
+    height: 1.3rem;
+    background-color: $color-snow;
+    border-radius: 2rem;
+    overflow: hidden;
+    
+    .collections__slider__element {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0%;
+        z-index: 1;
+        background-color: $color-blue;
     }
 }

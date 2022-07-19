@@ -4,6 +4,7 @@ import Preloader from './components/Preloader.js'
 import Navigation from './components/Navigation.js'
 import Canvas from './components/canvas/index.js'
 import NormalizeWheel from 'normalize-wheel'
+import Detail from './pages/Detail.js'
 
 import each from 'lodash/each.js'
 
@@ -49,6 +50,7 @@ class App {
         this.pages = {
             home: new Home(),
             collections: new Collections(),
+            detail: new Detail(),
         }
         this.page = this.pages[this.template]
         this.page.create()
@@ -64,9 +66,9 @@ class App {
         window.addEventListener('mousemove', this.onMouseMove.bind(this))
         window.addEventListener('mouseup', this.onMouseUp.bind(this))
 
-        window.addEventListener('touchdown', this.onMouseDown.bind(this))
+        window.addEventListener('touchstart', this.onMouseDown.bind(this))
         window.addEventListener('touchmove', this.onMouseMove.bind(this))
-        window.addEventListener('touchup', this.onMouseUp.bind(this))
+        window.addEventListener('touchend', this.onMouseUp.bind(this))
     }
 
     onResize(event) {
@@ -90,7 +92,7 @@ class App {
     }
 
     onMouseMove(event) {
-        if (this.canvas && this.canvas.onMouseWheel) {
+        if (this.canvas && this.canvas.onMouseMove) {
             this.canvas.onMouseMove(event)
         }
     }
@@ -106,7 +108,6 @@ class App {
         each(links, (e) => {
             e.onclick = (event) => {
                 const { href } = e
-                console.log(href)
                 event.preventDefault()
                 this.onChange(href)
             }

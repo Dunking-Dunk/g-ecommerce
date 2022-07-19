@@ -121,7 +121,7 @@ export default class {
             }
             media.update(this.scroll)
         })
-        this.y.target += 1
+        this.y.target -= 1
     }
 
     onResize(sizes) {
@@ -137,7 +137,6 @@ export default class {
     }
 
     destroy() {
-        console.log('lol')
         this.scene.removeChild(this.group)
     }
 }

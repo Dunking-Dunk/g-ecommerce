@@ -61,8 +61,8 @@ app.get('/collections', async (req, res) => {
                     products
                     }
             }`
-    console.log(query)
     const collections = await client.getSingle('collections')
+    console.log(collections.data.collections)
     const collection = await client.getByUID('collection', query.collections, { graphQuery })
     const products = await collection.data.products
     const products_uid = products.map((data) => data.product.uid)
@@ -71,7 +71,18 @@ app.get('/collections', async (req, res) => {
         const product = await client.getByUID('product', products_uid[i])
         products_data.push(product)
     }
-    res.render('pages/collections', { collections: collections.data, products: products_data })
+    res.render('pages/collections', {
+        collections: collections.data,
+        products: products_data,
+        collection,
+    })
+})
+
+app.get('/detail/:id', async (req, res) => {
+    const { id } = req.params
+    console.log(id)
+    const product = await client.getByID(id)
+    res.render('pages/detail', { product: product.data })
 })
 
 app.listen(PORT || 3000, () => {

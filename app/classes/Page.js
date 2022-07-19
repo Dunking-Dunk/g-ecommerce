@@ -10,7 +10,6 @@ export default class Page {
             preloader: '[data-src]',
         }
         this.id = id
-        this.create()
     }
 
     create() {
@@ -35,7 +34,7 @@ export default class Page {
                     if (this.elements[key].length === 0) {
                         this.elements[key] = null
                     } else if (this.elements[key].length === 1) {
-                        this.elements[key] = this.element.querySelector(selector)
+                        this.elements[key] = document.querySelector(selector)
                     }
                 }
             })
@@ -45,12 +44,14 @@ export default class Page {
     }
 
     createAsyncLoader() {
-        if (this.elements.preloader.length) {
-            each(this.elements.preloader, (element) => {
-                new AsyncLoader({ element })
-            })
-        } else {
-            new AsyncLoader({ element: this.elements.preloader })
+        if (this.elements.preloader) {
+            if (this.elements.preloader.length) {
+                each(this.elements.preloader, (element) => {
+                    new AsyncLoader({ element })
+                })
+            } else {
+                new AsyncLoader({ element: this.elements.preloader })
+            }
         }
     }
 
@@ -65,7 +66,7 @@ export default class Page {
                 },
                 {
                     autoAlpha: 1,
-                    duration: 1,
+                    duration: 1.5,
                     y: '0',
                     stagger: 0.2,
                 }
@@ -87,4 +88,6 @@ export default class Page {
     }
 
     addEventListeners() {}
+
+    createCarousel() {}
 }

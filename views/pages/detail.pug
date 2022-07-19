@@ -1,0 +1,27 @@
+extends  ../base.pug
+
+block variables
+    -var template = 'detail'
+
+block content 
+    .detail
+        .detail__wrapper
+            figure.detail__figure
+                image.detail__figure__image(data-src=product.product.url)
+            .detail__information 
+                h1.detail__information__title=product.title 
+                .detail__information__item
+                    h3.detail__information__item__title BRAND 
+                    span.detail__information__item__description=product.brand
+                .detail__information__item
+                    h3.detail__information__item__title Description 
+                    span.detail__information__item__description!=product.description.replace(/\n/g, '<br>')
+                .detail__information__item             
+                    h3.detail__information__item__title Price
+                    span.detail__information__item__description=product.price
+                .detail__information__item 
+                    h3.detail__information__item__title In Stock            
+                    .detail__information__stock(style={background: product.stock ? '#3EC70B' : 'red'})
+            a.detail__navigation__btn(href="/collections")
+                svg(xmlns="http://www.w3.org/2000/svg" width="109" height="67" viewBox="0 0 109 67" fill="none")
+                    path(d="M1.76451 30.6163C0.0371463 32.4031 0.0853674 35.2519 1.87222 36.9793L30.9906 65.1284C32.7775 66.8557 35.6263 66.8075 37.3537 65.0207C39.081 63.2338 39.0328 60.385 37.246 58.6576L11.3629 33.6362L36.3843 7.75321C38.1117 5.96636 38.0635 3.11752 36.2766 1.39016C34.4898 -0.337207 31.6409 -0.288986 29.9136 1.49786L1.76451 30.6163ZM107.953 27.5006L4.92373 29.2446L5.07605 38.2433L108.105 36.4994L107.953 27.5006Z" fill="#06283D")

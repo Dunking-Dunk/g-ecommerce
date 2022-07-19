@@ -1,0 +1,88 @@
+.detail {
+    @extend %page;
+}
+
+.detail__wrapper {
+    @extend %cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media('<phone') {
+        flex-direction: column;
+    }
+}
+
+.detail__figure {
+    width: 50%;
+    position: relative;
+    width: 81rem;
+    min-height: 40rem;
+ 
+}
+
+.detail__figure__image {
+    @extend %cover;
+    object-fit: contain;
+    
+}
+
+.detail__information {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    min-height: 50rem;
+    width: 72rem;
+    margin-left: 8rem;
+    @include media('<phone') {
+        margin-left: 1rem;
+        margin-top: 5rem
+    }
+}
+
+.detail__information__title {
+@extend %title-128;
+color: $color-blue;
+margin-bottom: 1rem;
+}
+
+
+.detail__information__item {
+margin-bottom:2rem;
+@include media('<phone') {
+    margin-bottom: 4rem
+}
+.detail__information__item__title {
+    @extend %title-28;
+    color: $color-blue;
+    margin-bottom: 0.5rem
+}
+
+.detail__information__item__description {
+    @extend %description-16;
+    color: $color-snow;
+    max-width: 50rem;
+}
+.detail__information__stock {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+}
+
+.detail__navigation__btn {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+
+
+    @include media('<phone') {
+        svg {
+            height: 10rem;
+            width: 10rem;
+        }
+    }
+
+   
+}

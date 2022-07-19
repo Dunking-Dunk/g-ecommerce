@@ -56,10 +56,12 @@ export default class Canvas {
     }
 
     onChange(template) {
-        console.log(template)
         if (template === 'home') {
             this.createHome()
-        } else this.destroyHome()
+        } else {
+            this.destroyHome()
+            this.home = null
+        }
 
         this.template = template
     }
@@ -109,10 +111,8 @@ export default class Canvas {
 
     onMouseMove(event) {
         if (!this.isDown) return
-
         const x = event.touches ? event.touches[0].clientX : event.clientX
         const y = event.touches ? event.touches[0].clientY : event.clientY
-
         this.x.end = x
         this.y.end = y
 
@@ -128,7 +128,6 @@ export default class Canvas {
 
     onMouseUp(event) {
         this.isDown = false
-
         const x = event.touches ? event.touches[0].clientX : event.clientX
         const y = event.touches ? event.touches[0].clientY : event.clientY
 

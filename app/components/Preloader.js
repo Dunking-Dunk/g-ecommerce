@@ -31,7 +31,6 @@ export default class Preloader extends Component {
     }
 
     createLoader() {
-        console.log(this.elements.images.length)
         if (this.elements.images.length === 0) {
             this.elements.number.innerHTML = '100%'
             this.onLoaded()

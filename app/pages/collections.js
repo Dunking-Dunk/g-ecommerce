@@ -8,18 +8,17 @@ export default class Collections extends Page {
             elements: {
                 carousel: '.products__carousel',
                 carouselBtn: '.products__carousel__btn',
+                slider: '.collections__slider',
+                sliderElement: '.collections__slider__element',
             },
             id: 'collections',
         })
-        this.length = 0
     }
-
     create() {
         super.create()
         this.createCarousel()
     }
-
     createCarousel() {
-        new Carousel({ buttons: this.elements.carouselBtn })
+        new Carousel({ buttons: this.elements.carouselBtn, slider: this.elements.sliderElement })
     }
 }

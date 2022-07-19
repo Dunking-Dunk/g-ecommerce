@@ -1,14 +1,11 @@
-import each from 'lodash/each.js'
-
 export default class Carousel {
-    constructor({ buttons }) {
-        this.buttons = buttons
-        this.createCarousel()
+    constructor({ buttons, slider }) {
+        this.createCarousel(buttons, slider)
     }
 
-    createCarousel() {
-        each(this.buttons, (button) => {
-            button.addEventListener('click', () => {
+    createCarousel(buttons, slider) {
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
                 const offset = button.dataset.carouselButton === 'next' ? 1 : -1
                 const slides = button.closest('[data-carousel]').querySelector('[data-slides]')
                 const activeSlide = slides.querySelector('[data-active]')
@@ -18,6 +15,10 @@ export default class Carousel {
 
                 slides.children[newIndex].dataset.active = true
                 delete activeSlide.dataset.active
+
+                slider.style.width = `${
+                    (newIndex / slides.children.length + 1 / slides.children.length) * 100
+                }%`
             })
         })
     }
