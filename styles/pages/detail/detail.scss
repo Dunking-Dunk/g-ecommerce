@@ -16,15 +16,20 @@
 .detail__figure {
     width: 50%;
     position: relative;
-    width: 81rem;
-    min-height: 40rem;
+    min-height: 50rem;
+
+    @include media('<phone') {
+        width: 100%;
+        margin-top: 10rem;
+        min-height: 45rem;
+    }
+
  
 }
 
 .detail__figure__image {
     @extend %cover;
-    object-fit: contain;
-    
+    object-fit: cover;
 }
 
 .detail__information {
